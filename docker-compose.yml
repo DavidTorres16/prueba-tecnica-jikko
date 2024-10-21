@@ -1,0 +1,16 @@
+volumes:
+  java_test:
+
+services:
+
+  db:
+    image: postgres:16-alpine
+    restart: always
+    volumes:
+      - java_test:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: introduction_pwd
+      POSTGRES_USER: introduction_user
+      POSTGRES_DB: introduction_db
+    ports:
+      - "5432:5432"
